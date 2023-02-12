@@ -58,4 +58,18 @@ You need to send commands in the chat interface of the bot to manage monitor pla
 * /cmd test \<monitor name>
 * /cmd exit
 
+template:
+Support custom message content
+* ${htmlUrl} -> Project release url
+* ${tagName} -> Project version
+* ${name} -> Project name
+* ${body} -> Project description
+
+For example, automatically replace the variable:
+```
+🥳 ReleasesMonitorTelegramBot ${tagName}
+
+${body}
+```
+
 ![8d1990b74160c9bd45b20a77c68c179abdbfca8b.png](https://i.imgur.com/Fp4RDXu.png)

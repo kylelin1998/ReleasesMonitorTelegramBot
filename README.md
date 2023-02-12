@@ -60,4 +60,19 @@ bot admin主要作用是设置成只有你才能触发命令
 * /cmd test \<monitor name>
 * /cmd exit
 
+template说明:
+支持自定义发送通知消息文本
+* ${htmlUrl} -> 项目release地址
+* ${tagName} -> 项目版本
+* ${name} -> 版本名称
+* ${body} -> 版本说明
+
+例子, 会自动替换对应内容:
+```
+🥳 ReleasesMonitorTelegramBot ${tagName}
+
+${body}
+```
+
+
 ![8d1990b74160c9bd45b20a77c68c179abdbfca8b.png](https://i.imgur.com/Fp4RDXu.png)
