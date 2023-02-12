@@ -45,7 +45,7 @@ public class Main {
             }).start();
 
             if (GlobalConfig.getOnProxy()) {
-                Bot = new CommandsHandler(RequestProxyConfig.createHttpProxy(GlobalConfig.getProxyHost(), GlobalConfig.getProxyPort()).buildDefaultBotOptions());
+                Bot = new CommandsHandler(RequestProxyConfig.create().buildDefaultBotOptions());
             } else {
                 Bot = new CommandsHandler();
             }

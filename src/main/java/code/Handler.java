@@ -34,10 +34,8 @@ public class Handler {
         new Thread(() -> {
             while (true) {
                 try {
-                    RequestProxyConfig proxyConfig = RequestProxyConfig.createHttpProxy(GlobalConfig.getProxyHost(), GlobalConfig.getProxyPort());
-
                     for (MonitorConfigSettings configSettings : Config.readMonitorConfigList()) {
-                        releaseMessageHandle(proxyConfig, configSettings, false);
+                        releaseMessageHandle(RequestProxyConfig.create(), configSettings, false);
                     }
 
                     Thread.sleep(GlobalConfig.getIntervalMinute() * 60 * 1000);
@@ -162,8 +160,7 @@ public class Handler {
 
                     showMonitorHandle(chatId, replyToMessageId, list.get(0));
                     sendMessageWithTryCatch(chatId, "Created finish! Requesting visit release API, please be patient.");
-                    RequestProxyConfig proxyConfig = RequestProxyConfig.createHttpProxy(GlobalConfig.getProxyHost(), GlobalConfig.getProxyPort());
-                    releaseMessageHandle(proxyConfig, settings, true);
+                    releaseMessageHandle(RequestProxyConfig.create(), settings, true);
 
                     return;
                 }
@@ -173,13 +170,12 @@ public class Handler {
     }
 
     public static void testMonitorHandle(String chatId, Integer replyToMessageId, String text) {
-        RequestProxyConfig proxyConfig = RequestProxyConfig.createHttpProxy(GlobalConfig.getProxyHost(), GlobalConfig.getProxyPort());
         MonitorConfigSettings settings = Config.readMonitorConfig(text);
         if (null == settings) {
             sendMessageWithTryCatch(chatId, replyToMessageId, String.format("Monitor named %s, not found, please send me again.", text));
             return;
         }
-        releaseMessageHandle(proxyConfig, settings, true);
+        releaseMessageHandle(RequestProxyConfig.create(), settings, true);
     }
 
     public static void updateMonitorHandle(boolean first, String chatId, Integer replyToMessageId, String text) {
