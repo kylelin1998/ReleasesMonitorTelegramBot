@@ -7,6 +7,8 @@
 Github, Gitee项目监控release最新版， 
 如果有监控到最新版本会通知到您设置好的Telegram群聊， 频道， 或者个人号上
 
+支持自定义消息通知， 由你掌控内容
+
 ## 安装 & 部署
 Dockerfile 与 jar文件放置到同一目录中进行打包镜像
 ```
@@ -74,5 +76,5 @@ template说明:
 ${body}
 ```
 
-
+![6a6ae12c04f26fab951ff9433e31f3b7647ba9c3.png](https://i.imgur.com/rhgNVb9.png)
 ![8d1990b74160c9bd45b20a77c68c179abdbfca8b.png](https://i.imgur.com/Fp4RDXu.png)

@@ -7,6 +7,8 @@
 GitHub and Gitee project monitor releases up-to-date.
 Send messages of up-to-date releases to your set-up Telegram channel,  group, or personal if have up-to-date.
 
+Support custom message content to your decision.
+
 ## Install & Deploy
 Dockerfile and Jar file to save the same directory for building docker image.
 ```
@@ -72,4 +74,5 @@ For example, automatically replace the variable:
 ${body}
 ```
 
+![6a6ae12c04f26fab951ff9433e31f3b7647ba9c3.png](https://i.imgur.com/rhgNVb9.png)
 ![8d1990b74160c9bd45b20a77c68c179abdbfca8b.png](https://i.imgur.com/Fp4RDXu.png)
