@@ -79,6 +79,7 @@ public class MessageHandle {
         SendMessage message = new SendMessage();
         message.setChatId(chatId);
         message.setText(text);
+        message.setDisableWebPagePreview(true);
 
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
         List<List<InlineKeyboardButton>> keyboard = new ArrayList<>();
