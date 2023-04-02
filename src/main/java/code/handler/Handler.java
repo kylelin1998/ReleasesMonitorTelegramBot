@@ -731,7 +731,7 @@ public class Handler {
 
                 if (StringUtils.isNotBlank(text) && StringUtils.isNotBlank(tagName)) {
                     if (isTest) {
-                        MessageHandle.sendMessage(session.getChatId(), text, true);
+                        MessageHandle.sendMessage(session.getChatId(), text, monitorTableEntity.getWebPagePreview() == OnEnum.On.getType());
                     } else {
                         List<MonitorSentRecordTableEntity> sentRecordTableEntityList = MonitorSentRecordTableRepository.selectListByMonitorId(monitorTableEntity.getId());
                         List<String> list = sentRecordTableEntityList.stream().map(MonitorSentRecordTableEntity::getVersion).collect(Collectors.toList());
