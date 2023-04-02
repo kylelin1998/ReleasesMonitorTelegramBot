@@ -19,7 +19,7 @@ public enum ProxyTypeEnum {
     }
 
     public static ProxyTypeEnum getDefault() {
-        return ProxyTypeEnum.values()[0];
+        return NotOpen;
     }
 
 }

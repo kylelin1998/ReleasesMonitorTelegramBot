@@ -4,7 +4,7 @@
 
     <!-- 定义变量 -->
     <property name="LOG_HOME" value="./logs" />
-    <property name="APP_NAME" value="Releases_Monitor_For_Telegram"/>
+    <property name="APP_NAME" value="ReleasesMonitorForTelegram"/>
 
     <contextName>${APP_NAME}</contextName>
 

@@ -7,8 +7,6 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hc.client5.http.fluent.Request;
 import org.apache.hc.client5.http.fluent.Response;
-import org.apache.hc.core5.http.ContentType;
-import org.apache.hc.core5.http.HttpResponse;
 import org.apache.hc.core5.util.Timeout;
 
 import java.nio.charset.Charset;
@@ -35,7 +33,7 @@ public class GithubUtil {
         private String browserDownloadUrl;
     }
 
-    public static LatestReleaseResponse getLatestRelease(RequestProxyConfig proxyConfig, String owner, String repo) {
+    public static LatestReleaseResponse getLatestRelease(RequestProxyConfig requestProxyConfig, String owner, String repo) {
         String url = String.format("https://api.github.com/repos/%s/%s/releases/latest", owner, repo);
         try {
             Request request = Request
@@ -44,10 +42,11 @@ public class GithubUtil {
                     .setHeader("X-GitHub-Api-Version", ApiVersion)
                     .connectTimeout(Timeout.of(15, TimeUnit.SECONDS))
                     .responseTimeout(Timeout.of(60, TimeUnit.SECONDS));
-            proxyConfig.viaProxy(request);
+            requestProxyConfig.viaProxy(request);
             Response execute = request.execute();
 
-            LatestReleaseResponse releaseAssetResponse = JSON.parseObject(execute.returnContent().asString(Charset.forName("UTF-8")), LatestReleaseResponse.class, JSONReader.Feature.SupportSmartMatch);
+            String s = execute.returnContent().asString(Charset.forName("UTF-8"));
+            LatestReleaseResponse releaseAssetResponse = JSON.parseObject(s, LatestReleaseResponse.class, JSONReader.Feature.SupportSmartMatch);
             releaseAssetResponse.setOk(true);
             return releaseAssetResponse;
         } catch (Exception e) {
