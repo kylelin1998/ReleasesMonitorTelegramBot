@@ -11,6 +11,10 @@ It supports Github and Gitee platforms to fetch the latest version.
 You can add a Github project to the bot, and if the project has a new version, the bot will notify you.
 
 ## Deploy
+Youtube：https://youtu.be/CiDxb1ESijQ
+
+哔哩哔哩： https://www.bilibili.com/video/BV1Ts4y1S7bn/
+
 The bot's deploy steps based on the Docker, its upgrade feature also based on the Docker, so please use the Docker to deploy it in case appear error.
 
 ### Prepare
